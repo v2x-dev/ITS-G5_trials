@@ -44,6 +44,6 @@ b. Add the path to the modified Tcpdump version modifying *"tcpdumpPath"* variab
 Steps 1-5 can be skipped, if the user decides to use our pre-processed MAT files (found in our [dataset]((https://doi.org/10.5523/bris.eupowp7h3jl525yxhm3521f57))).
 
 # Useful Links
-More information about Tcpdump can be found in [Tcpdump website](https://www.tcpdump.org).
-More information about ETSI's ITS-G5 protocol stack can be found in [ETSI TS 102 636-3 technical specification](https://www.etsi.org/deliver/etsi_ts/102600_102699/10263603/01.01.01_60/ts_10263603v010101p.pdf).
+More information about Tcpdump can be found in [Tcpdump website](https://www.tcpdump.org).\
+More information about ETSI's ITS-G5 protocol stack can be found in [ETSI TS 102 636-3 technical specification](https://www.etsi.org/deliver/etsi_ts/102600_102699/10263603/01.01.01_60/ts_10263603v010101p.pdf).\
 More information about ETSI's ITS-G5 CAMs can be found in [ETSI EN 302 637-2 technical specification](https://www.etsi.org/deliver/etsi_EN/302600_302699/30263702/01.03.01_30/en_30263702v010301v.pdf).

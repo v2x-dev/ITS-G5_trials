@@ -1,4 +1,4 @@
-function varTrials = loadMatFiles(folders,pathRoot,dayName,transPower)
+function varTrials = loadMatFiles(folders,pathRoot,dayName,transPower,obu)
 % loadMatFiles Load files for given day.
 % The file loads all the .mat files for a given day and it either
 % concatenates the with the existing variable or it it generates a variable
@@ -17,7 +17,12 @@ function varTrials = loadMatFiles(folders,pathRoot,dayName,transPower)
                 if strcmp(filesMat(i).name,'.') || strcmp(filesMat(i).name,'..') || contains(filesMat(i).name,'tcpDump') || ~contains(filesMat(i).name,transPower)
                     continue
                 else
-                    fprintf('Load file: %s\n', filesMat(i).name)
+                    if nargin>4
+                        if ~contains(filesMat(i).name,'vehNo')
+                            continue
+                        end
+                    end
+                    fprintf('Load file: %s\n', filesMat(i).name) 
                 end
                 fileNameTmp = strsplit(filesMat(i).name,{'_','-','.'});
 

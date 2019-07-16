@@ -57,7 +57,7 @@ if ~exist([pathRoot 'v2vTimestamps.mat'], 'file')
                 afternoonPacketsRX{i} = ismember(seqNumRx(deviceResetRx+1:end),seqNumTx(deviceResetTx+1:end));
 
                 idxTx = ismember(varTrials.obu.(obus{k}).TxCAM.SeqNum,seqNumRx);
-                v2vInteractions.(['d' uniqueDays{day}]).timings.(obus{i}).(transPower{trPower}).idxRx = idxRx;
+                v2vInteractionsArray.(['d' uniqueDays{day}]).timings.(obus{i}).(transPower{trPower}).idxRx = idxRx;
             end
 
             tbl = table;
@@ -82,28 +82,28 @@ if ~exist([pathRoot 'v2vTimestamps.mat'], 'file')
                     tmp = table(timestamps(1:length(MACRx)), TX(1:length(MACRx),:), MACTx(1:length(MACRx),:), GpsLonTx(1:length(MACRx)), GpsLatTx(1:length(MACRx)), CamLonTx(1:length(MACRx)), CamLatTx(1:length(MACRx)),...
                             RX, MACRx, GpsLonRx, GpsLatRx, CamLonRx, CamLatRx);
 
-                    tmp.Properties.VariableNames{'Var1'} = 'timestamps';
-                    tmp.Properties.VariableNames{'Var2'} = 'TX';
-                    tmp.Properties.VariableNames{'Var3'} = 'MACTx';
-                    tmp.Properties.VariableNames{'Var4'} = 'GpsLonTx';
-                    tmp.Properties.VariableNames{'Var5'} = 'GpsLatTx';
-                    tmp.Properties.VariableNames{'Var6'} = 'CamLonTx';
-                    tmp.Properties.VariableNames{'Var7'} = 'CamLatTx';
+                    tmp.Properties.VariableNames{'Var1'} = 'Timestamp';
+                    tmp.Properties.VariableNames{'Var2'} = 'TX-REQ-CAM';
+                    tmp.Properties.VariableNames{'Var3'} = 'TxMAC';
+                    tmp.Properties.VariableNames{'Var4'} = 'GpsLon-Tx';
+                    tmp.Properties.VariableNames{'Var5'} = 'GpsLat-Tx';
+                    tmp.Properties.VariableNames{'Var6'} = 'CamLon-Tx';
+                    tmp.Properties.VariableNames{'Var7'} = 'CamLat-Tx';
                     tbl = [ tbl ; tmp ];
                 else
                     tmp = table(timestamps, TX, MACTx, GpsLonTx, GpsLatTx, CamLonTx, CamLatTx,...
                             RX(1:length(MACTx),:), MACRx(1:length(MACTx),:), GpsLonRx(1:length(MACTx)), GpsLatRx(1:length(MACTx)), CamLonRx(1:length(MACTx)), CamLatRx(1:length(MACTx)));
 
-                    tmp.Properties.VariableNames{'Var8'} = 'RX';
-                    tmp.Properties.VariableNames{'Var9'} = 'MACRx';
-                    tmp.Properties.VariableNames{'Var10'} = 'GpsLonRx';
-                    tmp.Properties.VariableNames{'Var11'} = 'GpsLatRx';
-                    tmp.Properties.VariableNames{'Var12'} = 'CamLonRx';
-                    tmp.Properties.VariableNames{'Var13'} = 'CamLatRx';
+                    tmp.Properties.VariableNames{'Var8'} = 'RX-REQ-CAM';
+                    tmp.Properties.VariableNames{'Var9'} = 'RxMAC';
+                    tmp.Properties.VariableNames{'Var10'} = 'GpsLon-Rx';
+                    tmp.Properties.VariableNames{'Var11'} = 'GpsLat-Rx';
+                    tmp.Properties.VariableNames{'Var12'} = 'CamLon-Rx';
+                    tmp.Properties.VariableNames{'Var13'} = 'CamLat-Rx';
                     tbl = [ tbl ; tmp ];
                 end
             end
-            v2vInteractions.(['d' uniqueDays{day}]).interactions.(transPower{trPower}).tbl = sortrows(tbl,'timestamps');
+            v2vInteractionsArray.(['d' uniqueDays{day}]).interactions.(transPower{trPower}).tbl = sortrows(tbl,'timestamps');
 
         end
     end
